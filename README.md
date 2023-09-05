@@ -69,4 +69,4 @@ We would love to work with anyone who can contribute their work and improve this
 
 ## License
 
-Licensed Under [MIT](./LICENSE)
+Licensed Under [Apache 2.0](./LICENSE)
