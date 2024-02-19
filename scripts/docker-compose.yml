@@ -1,0 +1,78 @@
+version: '3.7'
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus-test
+    restart: always
+    ports:
+      - 9010:9090
+    volumes:
+      - /etc/prometheus/prometheus.yml:/opt/prometheus/prometheus.yml
+      - /etc/prometheus/alert.rules:/opt/prometheus/alert.rules
+
+    command:
+      - '--config.file=/opt/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/var/lib/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    deploy:
+      mode: replicated
+      replicas: 1
+    user: "0"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - 4050:3000
+    volumes:
+      - /etc/grafana/grafana.ini:/etc/grafana/grafana.ini
+      - /etc/grafana/provisioning/dashboards/:/etc/grafana/provisioning/dashboards/
+      - /etc/grafana/provisioning/datasources/:/etc/grafana/provisioning/datasources/
+      - /etc/grafana/dashboards/:/etc/grafana/dashboards/
+      - /etc/grafana/data:/var/lib/grafana
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      - GF_PATHS_CONFIG=/etc/grafana/grafana.ini
+      - GF_PATHS_DATA=/var/lib/grafana
+    user: "0"
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: always
+    ports:
+      - 7100:9100
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    deploy:
+      mode: global
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  alertmanager:
+    image: bitnami/alertmanager:latest
+    container_name: alertmanager
+    restart: always
+    volumes:
+      - /opt/bitnami/alertmanager/conf/config.yml:/opt/alertmanager/alert-config.yml
+      - /opt/bitnami/alertmanager/data:/opt/alertmanager/data
+    ports:
+      - 6050:9093
+    command:
+      - '--cluster.advertise-address=0.0.0.0:6050'
+      - '--config.file=/opt/alertmanager/alert-config.yml'
+    deploy:
+      mode: global
+    user: "0"
+    privileged: true
