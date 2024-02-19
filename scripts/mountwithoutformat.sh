@@ -2,7 +2,7 @@
 
 set -uxo pipefail
 
-MOUNT_DIR=/mnt/disks/${parachain}
+MOUNT_DIR=/mnt/disks/chaindisk
 DEVICE_NAME=/dev/sdb
 
 set -e

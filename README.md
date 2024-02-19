@@ -4,5 +4,5 @@
   </a>
 </p>
 
-<h1 align="center">Core API Service</h1>
+<h1 align="center">Deployment Scripts</h1>
 
