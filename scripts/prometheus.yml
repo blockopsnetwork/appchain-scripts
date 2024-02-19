@@ -1,0 +1,133 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+remote_write:
+  - url: https://thanos-receiver.blockops.network/api/v1/receive
+    basic_auth:
+      username:
+      password:
+    write_relabel_configs:
+      - source_labels: [job]
+        regex: 'gce_instances_parachain'
+        action: keep
+
+scrape_configs:
+  - job_name: ${parachain}_prometheus
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: ${parachain}_node_exporter
+    static_configs:
+      - targets: ['node-exporter:9100']
+    scrape_interval: 30s
+    scrape_timeout: 30s
+    tls_config:
+      insecure_skip_verify: true
+
+  - job_name: 'gce_instances_parachain'
+    gce_sd_configs:
+      - project: ${gcpproject}
+        zone: ${zone}
+        filter: labels.environment="${projectName}-testnet"
+        port: 9615
+    scrape_interval: 30s
+    scrape_timeout: 30s
+    relabel_configs:
+      - source_labels: [__meta_gce_public_ip]
+        target_label: address
+        replacement: "${1}:9615"
+      - source_labels: [__meta_gce_zone]
+        regex: ".+/([^/]+)"
+        target_label: zone
+      - source_labels: [__meta_gce_project]
+        target_label: project
+      - source_labels: [__meta_gce_instance_name]
+        target_label: instance
+      - regex: "__meta_gce_label_(.+)"
+        action: labelmap
+      - source_labels: [__meta_gce_metadata_network]
+        target_label: node_network
+      - source_labels: [__meta_gce_metadata_node_type]
+        target_label: node_type
+    tls_config:
+      insecure_skip_verify: true
+
+  - job_name: 'gce_instances_relaychain'
+    gce_sd_configs:
+      - project: ${gcpproject}
+        zone: ${zone}
+        filter: labels.environment="${projectName}-testnet"
+        port: 9616
+    scrape_interval: 30s
+    scrape_timeout: 30s
+    relabel_configs:
+      - source_labels: [__meta_gce_public_ip]
+        target_label: address
+        replacement: "${1}:9616"
+      - source_labels: [__meta_gce_zone]
+        regex: ".+/([^/]+)"
+        target_label: zone
+      - source_labels: [__meta_gce_project]
+        target_label: project
+      - source_labels: [__meta_gce_instance_name]
+        target_label: instance
+      - regex: "__meta_gce_label_(.+)"
+        action: labelmap
+      - source_labels: [__meta_gce_metadata_network]
+        target_label: node_network
+      - source_labels: [__meta_gce_metadata_node_type]
+        target_label: node_type
+    tls_config:
+      insecure_skip_verify: true
+
+  - job_name: 'gce_instances_node_exporters'
+    gce_sd_configs:
+      - project: ${gcpproject}
+        zone: ${zone}
+        port: 9100
+    relabel_configs:
+      - source_labels: [__meta_gce_public_ip]
+        target_label: address
+        replacement: "${1}:9100"
+      - source_labels: [__meta_gce_zone]
+        regex: ".+/([^/]+)"
+        target_label: zone
+      - source_labels: [__meta_gce_project]
+        target_label: project
+      - source_labels: [__meta_gce_instance_name]
+        target_label: instance
+      - regex: "__meta_gce_label_(.+)"
+        action: labelmap
+      - source_labels: [__meta_gce_metadata_network]
+        target_label: node_network
+      - source_labels: [__meta_gce_metadata_node_type]
+        target_label: node_type
+    tls_config:
+      insecure_skip_verify: true
+
+  - job_name: 'gce_instances_cadvisor_exporters'
+    scrape_interval: 30s
+    scrape_timeout: 30s
+    gce_sd_configs:
+      - project: ${gcpproject}
+        zone: ${zone}
+        port: 8001
+    relabel_configs:
+      - source_labels: [__meta_gce_public_ip]
+        target_label: address
+        replacement: "${1}:8001"
+      - source_labels: [__meta_gce_zone]
+        regex: ".+/([^/]+)"
+        target_label: zone
+      - source_labels: [__meta_gce_project]
+        target_label: project
+      - source_labels: [__meta_gce_instance_name]
+        target_label: instance
+      - regex: "__meta_gce_label_(.+)"
+        action: labelmap
+      - source_labels: [__meta_gce_metadata_network]
+        target_label: node_network
+      - source_labels: [__meta_gce_metadata_node_type]
+        target_label: node_type
+    tls_config:
+      insecure_skip_verify: true
