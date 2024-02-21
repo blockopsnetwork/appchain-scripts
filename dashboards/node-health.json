@@ -47,7 +47,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "gridPos": {
         "h": 1,
@@ -61,7 +61,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "refId": "A"
         }
@@ -72,7 +72,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Disk Space Used% Basic",
       "fieldConfig": {
@@ -171,7 +171,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "(node_filesystem_size_bytes{instance=\"$instance\",  project_name=\"PROJECTNAME\", project_id=\"PROJECTID\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}) *100/(node_filesystem_avail_bytes {instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
@@ -189,7 +189,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Busy state of all CPU cores together (5 min average)",
       "fieldConfig": {
@@ -259,7 +259,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "avg(node_load5{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) by (cpu)) * 100",
@@ -277,7 +277,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Busy state of all CPU cores together (15 min average)",
       "fieldConfig": {
@@ -347,7 +347,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "avg(node_load15{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) by (cpu)) * 100",
@@ -426,7 +426,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "((node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) / (node_memory_MemTotal_bytes{instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} )) * 100",
@@ -440,7 +440,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "100 - ((node_memory_MemAvailable_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} * 100) / node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
@@ -458,7 +458,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Used Root FS",
       "fieldConfig": {
@@ -529,7 +529,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} * 100) / node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
@@ -546,7 +546,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Total number of CPU cores",
       "fieldConfig": {
@@ -610,7 +610,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) by (cpu))",
@@ -628,7 +628,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "System uptime",
       "fieldConfig": {
@@ -694,7 +694,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "node_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - node_boot_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
@@ -710,7 +710,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Total RootFS",
       "fieldConfig": {
@@ -779,7 +779,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
@@ -797,7 +797,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Total RAM",
       "fieldConfig": {
@@ -862,7 +862,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
@@ -878,7 +878,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Total SWAP",
       "fieldConfig": {
@@ -943,7 +943,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
@@ -978,7 +978,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "decimals": 2,
       "description": "Basic CPU info",
@@ -1057,7 +1057,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -1074,7 +1074,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='user',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
@@ -1090,7 +1090,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='iowait',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
@@ -1104,7 +1104,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=~\".*irq\",instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
           "format": "time_series",
@@ -1116,7 +1116,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "sum (irate(node_cpu_seconds_total{mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
@@ -1130,7 +1130,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
           "format": "time_series",
@@ -1203,7 +1203,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "decimals": 2,
       "description": "Basic memory usage",
@@ -1292,7 +1292,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "expr": "namedprocess_namegroup_memory_bytes{groupname=\"[[metric_namespace]]\",memtype=\"resident\"}",
           "hide": false,
@@ -1304,7 +1304,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
@@ -1319,7 +1319,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - (node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
@@ -1335,7 +1335,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
@@ -1349,7 +1349,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "node_memory_MemFree_bytes{instance=\"$instance\",job=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
@@ -1363,7 +1363,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "(node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - node_memory_SwapFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
@@ -1441,7 +1441,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Basic network info per interface",
       "fieldConfig": {
@@ -1501,7 +1501,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "irate(node_network_receive_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])*8",
@@ -1516,7 +1516,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "irate(node_network_transmit_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])*8",
@@ -1570,7 +1570,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": ""
+        "uid": "blockopsthanosdashboarduid"
       },
       "decimals": 3,
       "description": "",
@@ -1622,7 +1622,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": ""
+            "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
           "expr": "irate(node_disk_io_time_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\",device=~\"$diskdevices\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} [5m])",
@@ -1686,7 +1686,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": ""
+          "uid": "blockopsthanosdashboarduid"
         },
         "definition": "label_values(chain)",
         "hide": 0,
@@ -1713,7 +1713,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": ""
+          "uid": "blockopsthanosdashboarduid"
         },
         "definition": "label_values({chain=\"$chain\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},instance)",
         "description": "",
@@ -1745,7 +1745,7 @@
         },
         "datasource": {
           "type": "prometheus",
-          "uid": ""
+          "uid": "blockopsthanosdashboarduid"
         },
         "definition": "label_values({instance=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},job)",
         "description": "Node exporter server job - default value: node_exporter",
