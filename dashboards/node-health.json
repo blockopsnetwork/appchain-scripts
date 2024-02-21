@@ -1,1818 +1,1818 @@
 {
-    "annotations": {
-      "list": [
-        {
-          "$$hashKey": "object:15",
-          "builtIn": 1,
-          "datasource": {
-            "type": "datasource",
-            "uid": "grafana"
-          },
-          "enable": true,
-          "hide": true,
-          "iconColor": "rgba(0, 211, 255, 1)",
+  "annotations": {
+    "list": [
+      {
+        "$$hashKey": "object:15",
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "limit": 100,
+        "name": "Annotations & Alerts",
+        "showIn": 0,
+        "target": {
           "limit": 100,
-          "name": "Annotations & Alerts",
-          "showIn": 0,
-          "target": {
-            "limit": 100,
-            "matchAny": false,
-            "tags": [],
-            "type": "dashboard"
-          },
+          "matchAny": false,
+          "tags": [],
           "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "gnetId": 13840,
+  "graphTooltip": 0,
+  "id": 14,
+  "links": [
+    {
+      "icon": "external link",
+      "tags": [],
+      "targetBlank": true,
+      "title": "Blockops",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://blockops.network"
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 50,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "refId": "A"
         }
-      ]
+      ],
+      "title": "Server Health",
+      "type": "row"
     },
-    "description": "",
-    "editable": true,
-    "fiscalYearStartMonth": 0,
-    "gnetId": 13840,
-    "graphTooltip": 0,
-    "id": 14,
-    "links": [
-      {
-        "icon": "external link",
-        "tags": [],
-        "targetBlank": true,
-        "title": "Blockops",
-        "tooltip": "",
-        "type": "link",
-        "url": "https://blockops.network"
-      }
-    ],
-    "liveNow": false,
-    "panels": [
-      {
-        "collapsed": false,
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "gridPos": {
-          "h": 1,
-          "w": 24,
-          "x": 0,
-          "y": 0
-        },
-        "id": 50,
-        "panels": [],
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "refId": "A"
-          }
-        ],
-        "title": "Server Health",
-        "type": "row"
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
       },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "Disk Space Used% Basic",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "palette-classic"
+      "description": "Disk Space Used% Basic",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             },
-            "custom": {
-              "axisBorderShow": false,
-              "axisCenteredZero": false,
-              "axisColorMode": "text",
-              "axisLabel": "",
-              "axisPlacement": "auto",
-              "barAlignment": 0,
-              "drawStyle": "line",
-              "fillOpacity": 0,
-              "gradientMode": "none",
-              "hideFrom": {
-                "legend": false,
-                "tooltip": false,
-                "viz": false
-              },
-              "insertNulls": false,
-              "lineInterpolation": "linear",
-              "lineWidth": 1,
-              "pointSize": 5,
-              "scaleDistribution": {
-                "type": "linear"
-              },
-              "showPoints": "auto",
-              "spanNulls": false,
-              "stacking": {
-                "group": "A",
-                "mode": "none"
-              },
-              "thresholdsStyle": {
-                "mode": "off"
-              }
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
             },
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 85
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 95
-                }
-              ]
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
             },
-            "unit": "percent"
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 4,
-          "w": 6,
-          "x": 0,
-          "y": 1
-        },
-        "id": 54,
-        "links": [],
-        "options": {
-          "legend": {
-            "calcs": [],
-            "displayMode": "list",
-            "placement": "bottom",
-            "showLegend": false
-          },
-          "tooltip": {
-            "mode": "single",
-            "sort": "none"
-          }
-        },
-        "pluginVersion": "9.3.11",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "(node_filesystem_size_bytes{instance=\"$instance\",  project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}) *100/(node_filesystem_avail_bytes {instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
-            "hide": false,
-            "intervalFactor": 1,
-            "legendFormat": "",
-            "range": true,
-            "refId": "A",
-            "step": 900
-          }
-        ],
-        "title": "Disk Space Used% Basic",
-        "type": "timeseries"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "Busy state of all CPU cores together (5 min average)",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 85
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 95
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 4,
-          "w": 3,
-          "x": 6,
-          "y": 1
-        },
-        "id": 56,
-        "links": [],
-        "options": {
-          "minVizHeight": 75,
-          "minVizWidth": 75,
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showThresholdLabels": false,
-          "showThresholdMarkers": true,
-          "text": {}
-        },
-        "pluginVersion": "10.2.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "avg(node_load5{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}) by (cpu)) * 100",
-            "format": "time_series",
-            "hide": false,
-            "intervalFactor": 1,
-            "range": true,
-            "refId": "A",
-            "step": 900
-          }
-        ],
-        "title": "Sys Load (5m avg)",
-        "type": "gauge"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "Busy state of all CPU cores together (15 min average)",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 85
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 95
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 4,
-          "w": 3,
-          "x": 9,
-          "y": 1
-        },
-        "id": 58,
-        "links": [],
-        "options": {
-          "minVizHeight": 75,
-          "minVizWidth": 75,
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showThresholdLabels": false,
-          "showThresholdMarkers": true,
-          "text": {}
-        },
-        "pluginVersion": "10.2.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "avg(node_load15{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}) by (cpu)) * 100",
-            "hide": false,
-            "intervalFactor": 1,
-            "range": true,
-            "refId": "A",
-            "step": 900
-          }
-        ],
-        "title": "Sys Load (15m avg)",
-        "type": "gauge"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "e9cd7b44-5a13-45a0-8325-c110f4cb5c5f"
-        },
-        "description": "Non available RAM memory",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 0,
-            "mappings": [],
-            "max": 100,
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 80
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 90
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 4,
-          "w": 3,
-          "x": 12,
-          "y": 1
-        },
-        "hideTimeOverride": false,
-        "id": 60,
-        "links": [],
-        "options": {
-          "minVizHeight": 75,
-          "minVizWidth": 75,
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showThresholdLabels": false,
-          "showThresholdMarkers": true,
-          "text": {}
-        },
-        "pluginVersion": "10.2.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "((node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}) / (node_memory_MemTotal_bytes{instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"} )) * 100",
-            "format": "time_series",
-            "hide": true,
-            "intervalFactor": 1,
-            "range": true,
-            "refId": "A",
-            "step": 900
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "100 - ((node_memory_MemAvailable_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"} * 100) / node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"})",
-            "format": "time_series",
-            "hide": false,
-            "intervalFactor": 1,
-            "range": true,
-            "refId": "B",
-            "step": 900
-          }
-        ],
-        "title": "RAM Used",
-        "type": "gauge"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "Used Root FS",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 1,
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 80
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 90
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 4,
-          "w": 3,
-          "x": 15,
-          "y": 1
-        },
-        "id": 64,
-        "links": [],
-        "options": {
-          "minVizHeight": 75,
-          "minVizWidth": 75,
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "showThresholdLabels": false,
-          "showThresholdMarkers": true,
-          "text": {}
-        },
-        "pluginVersion": "10.2.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"} * 100) / node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"})",
-            "format": "time_series",
-            "intervalFactor": 1,
-            "range": true,
-            "refId": "A",
-            "step": 900
-          }
-        ],
-        "title": "Root FS Used",
-        "type": "gauge"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "Total number of CPU cores",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "short"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 2,
-          "w": 2,
-          "x": 18,
-          "y": 1
-        },
-        "id": 66,
-        "links": [],
-        "maxDataPoints": 100,
-        "options": {
-          "colorMode": "none",
-          "graphMode": "none",
-          "justifyMode": "auto",
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "10.2.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}) by (cpu))",
-            "interval": "",
-            "intervalFactor": 1,
-            "legendFormat": "",
-            "range": true,
-            "refId": "A",
-            "step": 900
-          }
-        ],
-        "title": "CPU Cores",
-        "type": "stat"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "System uptime",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 1,
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "s"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 2,
-          "w": 4,
-          "x": 20,
-          "y": 1
-        },
-        "hideTimeOverride": true,
-        "id": 70,
-        "links": [],
-        "maxDataPoints": 100,
-        "options": {
-          "colorMode": "none",
-          "graphMode": "none",
-          "justifyMode": "auto",
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "10.2.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "node_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"} - node_boot_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}",
-            "intervalFactor": 2,
-            "range": true,
-            "refId": "A",
-            "step": 1800
-          }
-        ],
-        "title": "Uptime",
-        "type": "stat"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "Total RootFS",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 0,
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 70
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 90
-                }
-              ]
-            },
-            "unit": "bytes"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 2,
-          "w": 2,
-          "x": 18,
-          "y": 3
-        },
-        "id": 68,
-        "links": [],
-        "maxDataPoints": 100,
-        "options": {
-          "colorMode": "none",
-          "graphMode": "none",
-          "justifyMode": "auto",
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "10.2.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}",
-            "format": "time_series",
-            "hide": false,
-            "intervalFactor": 1,
-            "range": true,
-            "refId": "A",
-            "step": 900
-          }
-        ],
-        "title": "RootFS Total",
-        "type": "stat"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "Total RAM",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 0,
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "bytes"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 2,
-          "w": 2,
-          "x": 20,
-          "y": 3
-        },
-        "id": 82,
-        "links": [],
-        "maxDataPoints": 100,
-        "options": {
-          "colorMode": "none",
-          "graphMode": "none",
-          "justifyMode": "auto",
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "10.2.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}",
-            "intervalFactor": 1,
-            "range": true,
-            "refId": "A",
-            "step": 900
-          }
-        ],
-        "title": "RAM Total",
-        "type": "stat"
-      },
-      {
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "Total SWAP",
-        "fieldConfig": {
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 0,
-            "mappings": [
-              {
-                "options": {
-                  "match": "null",
-                  "result": {
-                    "text": "N/A"
-                  }
-                },
-                "type": "special"
-              }
-            ],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "bytes"
-          },
-          "overrides": []
-        },
-        "gridPos": {
-          "h": 2,
-          "w": 2,
-          "x": 22,
-          "y": 3
-        },
-        "id": 74,
-        "links": [],
-        "maxDataPoints": 100,
-        "options": {
-          "colorMode": "none",
-          "graphMode": "none",
-          "justifyMode": "auto",
-          "orientation": "horizontal",
-          "reduceOptions": {
-            "calcs": [
-              "lastNotNull"
-            ],
-            "fields": "",
-            "values": false
-          },
-          "textMode": "auto"
-        },
-        "pluginVersion": "10.2.0",
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}",
-            "intervalFactor": 1,
-            "range": true,
-            "refId": "A",
-            "step": 900
-          }
-        ],
-        "title": "SWAP Total",
-        "type": "stat"
-      },
-      {
-        "aliasColors": {
-          "Busy": "#EAB839",
-          "Busy Iowait": "#890F02",
-          "Busy other": "#1F78C1",
-          "Idle": "#052B51",
-          "Idle - Waiting for something to happen": "#052B51",
-          "guest": "#9AC48A",
-          "idle": "#052B51",
-          "iowait": "#EAB839",
-          "irq": "#BF1B00",
-          "nice": "#C15C17",
-          "softirq": "#E24D42",
-          "steal": "#FCE2DE",
-          "system": "#508642",
-          "user": "#5195CE"
-        },
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "decimals": 2,
-        "description": "Basic CPU info",
-        "fieldConfig": {
-          "defaults": {
-            "links": []
-          },
-          "overrides": []
-        },
-        "fill": 4,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 7,
-          "w": 6,
-          "x": 0,
-          "y": 5
-        },
-        "hiddenSeries": false,
-        "id": 76,
-        "legend": {
-          "alignAsTable": false,
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "rightSide": false,
-          "show": true,
-          "sideWidth": 250,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 1,
-        "links": [],
-        "maxPerRow": 6,
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": true,
-        "pluginVersion": "10.2.0",
-        "pointradius": 5,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [
-          {
-            "$$hashKey": "object:3565",
-            "alias": "Busy Iowait",
-            "color": "#890F02"
-          },
-          {
-            "$$hashKey": "object:3566",
-            "alias": "Idle",
-            "color": "#7EB26D"
-          },
-          {
-            "$$hashKey": "object:3567",
-            "alias": "Busy System",
-            "color": "#EAB839"
-          },
-          {
-            "$$hashKey": "object:3568",
-            "alias": "Busy User",
-            "color": "#0A437C"
-          },
-          {
-            "$$hashKey": "object:3569",
-            "alias": "Busy Other",
-            "color": "#B877D9"
-          }
-        ],
-        "spaceLength": 10,
-        "stack": true,
-        "steppedLine": false,
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "exemplar": true,
-            "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=\"system\",instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}[5m])) * 100",
-            "format": "time_series",
-            "hide": false,
-            "interval": "",
-            "intervalFactor": 2,
-            "legendFormat": "Busy System",
-            "range": true,
-            "refId": "A",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='user',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}[5m])) * 100",
-            "format": "time_series",
-            "hide": false,
-            "interval": "",
-            "intervalFactor": 2,
-            "legendFormat": "Busy User",
-            "range": true,
-            "refId": "B",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='iowait',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}[5m])) * 100",
-            "format": "time_series",
-            "intervalFactor": 2,
-            "legendFormat": "Busy Iowait",
-            "range": true,
-            "refId": "C",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=~\".*irq\",instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}[5m])) * 100",
-            "format": "time_series",
-            "intervalFactor": 2,
-            "legendFormat": "Busy IRQs",
-            "refId": "D",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "sum (irate(node_cpu_seconds_total{mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}[5m])) * 100",
-            "format": "time_series",
-            "intervalFactor": 2,
-            "legendFormat": "Busy Other",
-            "range": true,
-            "refId": "E",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}[5m])) * 100",
-            "format": "time_series",
-            "interval": "",
-            "intervalFactor": 2,
-            "legendFormat": "Idle",
-            "refId": "F",
-            "step": 240
-          }
-        ],
-        "thresholds": [],
-        "timeRegions": [],
-        "title": "CPU Basic",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "mode": "time",
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "$$hashKey": "object:3600",
-            "format": "short",
-            "label": "",
-            "logBase": 1,
-            "max": "100",
-            "min": "0",
-            "show": true
-          },
-          {
-            "$$hashKey": "object:3601",
-            "format": "short",
-            "logBase": 1,
-            "show": false
-          }
-        ],
-        "yaxis": {
-          "align": false
-        }
-      },
-      {
-        "aliasColors": {
-          "Apps": "#629E51",
-          "Buffers": "#614D93",
-          "Cache": "#6D1F62",
-          "Cached": "#511749",
-          "Committed": "#508642",
-          "Free": "#0A437C",
-          "Hardware Corrupted - Amount of RAM that the kernel identified as corrupted / not working": "#CFFAFF",
-          "Inactive": "#584477",
-          "PageTables": "#0A50A1",
-          "Page_Tables": "#0A50A1",
-          "RAM_Free": "#E0F9D7",
-          "SWAP Used": "#BF1B00",
-          "Slab": "#806EB7",
-          "Slab_Cache": "#E0752D",
-          "Swap": "#BF1B00",
-          "Swap Used": "#BF1B00",
-          "Swap_Cache": "#C15C17",
-          "Swap_Free": "#2F575E",
-          "Unused": "#EAB839"
-        },
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "decimals": 2,
-        "description": "Basic memory usage",
-        "fieldConfig": {
-          "defaults": {
-            "links": []
-          },
-          "overrides": []
-        },
-        "fill": 4,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 7,
-          "w": 6,
-          "x": 6,
-          "y": 5
-        },
-        "hiddenSeries": false,
-        "id": 78,
-        "legend": {
-          "alignAsTable": false,
-          "avg": false,
-          "current": false,
-          "max": false,
-          "min": false,
-          "rightSide": false,
-          "show": true,
-          "sideWidth": 350,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 1,
-        "links": [],
-        "maxPerRow": 6,
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "10.2.0",
-        "pointradius": 5,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [
-          {
-            "$$hashKey": "object:4023",
-            "alias": "RAM Total",
-            "color": "#E0F9D7",
-            "fill": 0,
-            "stack": false
-          },
-          {
-            "$$hashKey": "object:4024",
-            "alias": "RAM Cache + Buffer",
-            "color": "#052B51"
-          },
-          {
-            "$$hashKey": "object:4025",
-            "alias": "RAM Free",
-            "color": "#7EB26D"
-          },
-          {
-            "$$hashKey": "object:4026",
-            "alias": "Avaliable",
-            "color": "#DEDAF7",
-            "fill": 0,
-            "stack": false
-          },
-          {
-            "$$hashKey": "object:4083",
-            "alias": "Polkadot",
-            "color": "rgb(247, 0, 222)",
-            "stack": false
-          },
-          {
-            "$$hashKey": "object:5303",
-            "alias": "RAM Used",
-            "color": "#FADE2A"
-          }
-        ],
-        "spaceLength": 10,
-        "stack": true,
-        "steppedLine": false,
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "expr": "namedprocess_namegroup_memory_bytes{groupname=\"[[metric_namespace]]\",memtype=\"resident\"}",
-            "hide": false,
-            "interval": "",
-            "intervalFactor": 2,
-            "legendFormat": "Polkadot",
-            "refId": "F"
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}",
-            "format": "time_series",
-            "hide": false,
-            "intervalFactor": 2,
-            "legendFormat": "RAM Total",
-            "range": true,
-            "refId": "A",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"} - (node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"})",
-            "format": "time_series",
-            "hide": false,
-            "interval": "",
-            "intervalFactor": 2,
-            "legendFormat": "RAM Used",
-            "range": true,
-            "refId": "B",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}",
-            "format": "time_series",
-            "intervalFactor": 2,
-            "legendFormat": "RAM Cache + Buffer",
-            "range": true,
-            "refId": "C",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "node_memory_MemFree_bytes{instance=\"$instance\",job=\"$instance\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}",
-            "format": "time_series",
-            "intervalFactor": 2,
-            "legendFormat": "RAM Free",
-            "range": true,
-            "refId": "D",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "(node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"} - node_memory_SwapFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"})",
-            "format": "time_series",
-            "interval": "",
-            "intervalFactor": 2,
-            "legendFormat": "SWAP Used",
-            "range": true,
-            "refId": "E",
-            "step": 240
-          }
-        ],
-        "thresholds": [],
-        "timeRegions": [],
-        "title": "Memory Basic",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "mode": "time",
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "$$hashKey": "object:4059",
-            "format": "bytes",
-            "label": "",
-            "logBase": 1,
-            "min": "0",
-            "show": true
-          },
-          {
-            "$$hashKey": "object:4060",
-            "format": "short",
-            "logBase": 1,
-            "show": false
-          }
-        ],
-        "yaxis": {
-          "align": false
-        }
-      },
-      {
-        "aliasColors": {
-          "Recv_bytes_eth2": "#7EB26D",
-          "Recv_bytes_lo": "#0A50A1",
-          "Recv_drop_eth2": "#6ED0E0",
-          "Recv_drop_lo": "#E0F9D7",
-          "Recv_errs_eth2": "#BF1B00",
-          "Recv_errs_lo": "#CCA300",
-          "Trans_bytes_eth2": "#7EB26D",
-          "Trans_bytes_lo": "#0A50A1",
-          "Trans_drop_eth2": "#6ED0E0",
-          "Trans_drop_lo": "#E0F9D7",
-          "Trans_errs_eth2": "#BF1B00",
-          "Trans_errs_lo": "#CCA300",
-          "recv_bytes_lo": "#0A50A1",
-          "recv_drop_eth0": "#99440A",
-          "recv_drop_lo": "#967302",
-          "recv_errs_eth0": "#BF1B00",
-          "recv_errs_lo": "#890F02",
-          "trans_bytes_eth0": "#7EB26D",
-          "trans_bytes_lo": "#0A50A1",
-          "trans_drop_eth0": "#99440A",
-          "trans_drop_lo": "#967302",
-          "trans_errs_eth0": "#BF1B00",
-          "trans_errs_lo": "#890F02"
-        },
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "description": "Basic network info per interface",
-        "fieldConfig": {
-          "defaults": {
-            "links": []
-          },
-          "overrides": []
-        },
-        "fill": 4,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 7,
-          "w": 6,
-          "x": 12,
-          "y": 5
-        },
-        "hiddenSeries": false,
-        "id": 80,
-        "legend": {
-          "alignAsTable": false,
-          "avg": false,
-          "current": false,
-          "hideEmpty": false,
-          "hideZero": false,
-          "max": false,
-          "min": false,
-          "rightSide": false,
-          "show": true,
-          "sort": "current",
-          "sortDesc": true,
-          "total": false,
-          "values": false
-        },
-        "lines": true,
-        "linewidth": 1,
-        "links": [],
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "10.2.0",
-        "pointradius": 5,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [
-          {
-            "$$hashKey": "object:1019",
-            "alias": "/.*trans.*/",
-            "transform": "negative-Y"
-          }
-        ],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "irate(node_network_receive_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}[5m])*8",
-            "format": "time_series",
-            "interval": "",
-            "intervalFactor": 2,
-            "legendFormat": "recv {{device}}",
-            "range": true,
-            "refId": "A",
-            "step": 240
-          },
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "irate(node_network_transmit_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"}[5m])*8",
-            "format": "time_series",
-            "intervalFactor": 2,
-            "legendFormat": "trans {{device}} ",
-            "range": true,
-            "refId": "B",
-            "step": 240
-          }
-        ],
-        "thresholds": [],
-        "timeRegions": [],
-        "title": "Network Traffic Basic",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "mode": "time",
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "$$hashKey": "object:1065",
-            "format": "bps",
-            "logBase": 1,
-            "show": true
-          },
-          {
-            "$$hashKey": "object:1066",
-            "format": "pps",
-            "label": "",
-            "logBase": 1,
-            "show": false
-          }
-        ],
-        "yaxis": {
-          "align": false
-        }
-      },
-      {
-        "aliasColors": {
-          "io time": "#890F02"
-        },
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": {
-          "type": "prometheus",
-          "uid": "${PROMETHEUS_DATASOURCE_UID}"
-        },
-        "decimals": 3,
-        "description": "",
-        "fieldConfig": {
-          "defaults": {
-            "links": []
-          },
-          "overrides": []
-        },
-        "fill": 4,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 7,
-          "w": 6,
-          "x": 18,
-          "y": 5
-        },
-        "hiddenSeries": false,
-        "id": 88,
-        "legend": {
-          "alignAsTable": true,
-          "avg": true,
-          "current": true,
-          "max": true,
-          "min": true,
-          "rightSide": false,
-          "show": true,
-          "total": false,
-          "values": true
-        },
-        "lines": true,
-        "linewidth": 1,
-        "links": [],
-        "maxPerRow": 6,
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "10.2.0",
-        "pointradius": 5,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
-          {
-            "datasource": {
-              "type": "prometheus",
-              "uid": "${PROMETHEUS_DATASOURCE_UID}"
-            },
-            "editorMode": "code",
-            "expr": "irate(node_disk_io_time_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\",device=~\"$diskdevices\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"} [5m])",
-            "format": "time_series",
-            "hide": false,
-            "intervalFactor": 2,
-            "legendFormat": "{{device}} - Time spent doing I/Os",
-            "range": true,
-            "refId": "A",
-            "step": 240
-          }
-        ],
-        "thresholds": [],
-        "timeRegions": [],
-        "title": "I/O Usage Times",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "mode": "time",
-          "show": false,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "$$hashKey": "object:3764",
-            "format": "s",
-            "label": "time",
-            "logBase": 1,
-            "min": "0",
-            "show": true
-          },
-          {
-            "$$hashKey": "object:3765",
-            "format": "s",
-            "label": "",
-            "logBase": 1,
-            "show": false
-          }
-        ],
-        "yaxis": {
-          "align": false
-        }
-      }
-    ],
-    "refresh": "5s",
-    "schemaVersion": 38,
-    "tags": [
-      "parachain"
-    ],
-    "templating": {
-      "list": [
-        {
-          "current": {
-            "selected": true,
-            "text": "gargantuan",
-            "value": "gargantuan"
-          },
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${PROMETHEUS_DATASOURCE_UID}"
-          },
-          "definition": "label_values(chain)",
-          "hide": 0,
-          "includeAll": false,
-          "label": "Chain",
-          "multi": false,
-          "name": "chain",
-          "options": [],
-          "query": {
-            "query": "label_values(chain)",
-            "refId": "StandardVariableQuery"
-          },
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "sort": 0,
-          "type": "query"
-        },
-        {
-          "current": {
-            "selected": true,
-            "text": "hyperbridge-cl-testnet-collator-1-001",
-            "value": "hyperbridge-cl-testnet-collator-1-001"
-          },
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${PROMETHEUS_DATASOURCE_UID}"
-          },
-          "definition": "label_values({chain=\"$chain\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"},instance)",
-          "description": "",
-          "hide": 0,
-          "includeAll": false,
-          "label": "Instance",
-          "multi": false,
-          "name": "instance",
-          "options": [],
-          "query": {
-            "qryType": 1,
-            "query": "label_values({project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"},instance)",
-            "refId": "PrometheusVariableQueryEditor-VariableQuery"
-          },
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "sort": 0,
-          "tagValuesQuery": "",
-          "tagsQuery": "",
-          "type": "query",
-          "useTags": false
-        },
-        {
-          "current": {
-            "selected": false,
-            "text": "hyperbridge_node_exporters",
-            "value": "hyperbridge_node_exporters"
-          },
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${PROMETHEUS_DATASOURCE_UID}"
-          },
-          "definition": "label_values({instance=\"$instance\", project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"},job)",
-          "description": "Node exporter server job - default value: node_exporter",
-          "hide": 2,
-          "includeAll": false,
-          "label": "Server Job",
-          "multi": false,
-          "name": "job",
-          "options": [],
-          "query": {
-            "qryType": 1,
-            "query": "label_values({instance=\"$instance\",project_name=\"${PROJECT_NAME}\", project_id=\"${PROJECT_ID}\"},job)",
-            "refId": "PrometheusVariableQueryEditor-VariableQuery"
-          },
-          "refresh": 1,
-          "regex": "",
-          "skipUrlSync": false,
-          "sort": 0,
-          "tagValuesQuery": "",
-          "tagsQuery": "",
-          "type": "query",
-          "useTags": false
-        },
-        {
-          "current": {
-            "selected": false,
-            "text": "[a-z]+|nvme[0-9]+n[0-9]+",
-            "value": "[a-z]+|nvme[0-9]+n[0-9]+"
-          },
-          "hide": 2,
-          "includeAll": false,
-          "multi": false,
-          "name": "diskdevices",
-          "options": [
+          "mappings": [
             {
-              "selected": true,
-              "text": "[a-z]+|nvme[0-9]+n[0-9]+",
-              "value": "[a-z]+|nvme[0-9]+n[0-9]+"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
-          "query": "[a-z]+|nvme[0-9]+n[0-9]+",
-          "skipUrlSync": false,
-          "type": "custom"
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 85
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 1
+      },
+      "id": 54,
+      "links": [],
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
         }
-      ]
+      },
+      "pluginVersion": "9.3.11",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "(node_filesystem_size_bytes{instance=\"$instance\",  project_name=\"PROJECTNAME\", project_id=\"PROJECTID\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}) *100/(node_filesystem_avail_bytes {instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
+          "hide": false,
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "range": true,
+          "refId": "A",
+          "step": 900
+        }
+      ],
+      "title": "Disk Space Used% Basic",
+      "type": "timeseries"
     },
-    "time": {
-      "from": "now-5m",
-      "to": "now"
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "description": "Busy state of all CPU cores together (5 min average)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 85
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 6,
+        "y": 1
+      },
+      "id": 56,
+      "links": [],
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "avg(node_load5{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) by (cpu)) * 100",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "range": true,
+          "refId": "A",
+          "step": 900
+        }
+      ],
+      "title": "Sys Load (5m avg)",
+      "type": "gauge"
     },
-    "timepicker": {
-      "refresh_intervals": [
-        "5s",
-        "10s",
-        "30s",
-        "1m",
-        "5m",
-        "15m",
-        "30m",
-        "1h",
-        "2h",
-        "1d"
-      ]
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "description": "Busy state of all CPU cores together (15 min average)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 85
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 9,
+        "y": 1
+      },
+      "id": 58,
+      "links": [],
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "avg(node_load15{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) by (cpu)) * 100",
+          "hide": false,
+          "intervalFactor": 1,
+          "range": true,
+          "refId": "A",
+          "step": 900
+        }
+      ],
+      "title": "Sys Load (15m avg)",
+      "type": "gauge"
     },
-    "timezone": "",
-    "title": "Node Health",
-    "uid": "blockops-nodehealth-monitor",
-    "version": 3,
-    "weekStart": ""
-  }
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "e9cd7b44-5a13-45a0-8325-c110f4cb5c5f"
+      },
+      "description": "Non available RAM memory",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 80
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 12,
+        "y": 1
+      },
+      "hideTimeOverride": false,
+      "id": 60,
+      "links": [],
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "((node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) / (node_memory_MemTotal_bytes{instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} )) * 100",
+          "format": "time_series",
+          "hide": true,
+          "intervalFactor": 1,
+          "range": true,
+          "refId": "A",
+          "step": 900
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "100 - ((node_memory_MemAvailable_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} * 100) / node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "range": true,
+          "refId": "B",
+          "step": 900
+        }
+      ],
+      "title": "RAM Used",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "description": "Used Root FS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 80
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 15,
+        "y": 1
+      },
+      "id": 64,
+      "links": [],
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} * 100) / node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "range": true,
+          "refId": "A",
+          "step": 900
+        }
+      ],
+      "title": "Root FS Used",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "description": "Total number of CPU cores",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 18,
+        "y": 1
+      },
+      "id": 66,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) by (cpu))",
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "range": true,
+          "refId": "A",
+          "step": 900
+        }
+      ],
+      "title": "CPU Cores",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "description": "System uptime",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 4,
+        "x": 20,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 70,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "node_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - node_boot_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "intervalFactor": 2,
+          "range": true,
+          "refId": "A",
+          "step": 1800
+        }
+      ],
+      "title": "Uptime",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "description": "Total RootFS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 70
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 18,
+        "y": 3
+      },
+      "id": 68,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "range": true,
+          "refId": "A",
+          "step": 900
+        }
+      ],
+      "title": "RootFS Total",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "description": "Total RAM",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 20,
+        "y": 3
+      },
+      "id": 82,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "intervalFactor": 1,
+          "range": true,
+          "refId": "A",
+          "step": 900
+        }
+      ],
+      "title": "RAM Total",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "description": "Total SWAP",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 2,
+        "x": 22,
+        "y": 3
+      },
+      "id": 74,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.2.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "intervalFactor": 1,
+          "range": true,
+          "refId": "A",
+          "step": 900
+        }
+      ],
+      "title": "SWAP Total",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {
+        "Busy": "#EAB839",
+        "Busy Iowait": "#890F02",
+        "Busy other": "#1F78C1",
+        "Idle": "#052B51",
+        "Idle - Waiting for something to happen": "#052B51",
+        "guest": "#9AC48A",
+        "idle": "#052B51",
+        "iowait": "#EAB839",
+        "irq": "#BF1B00",
+        "nice": "#C15C17",
+        "softirq": "#E24D42",
+        "steal": "#FCE2DE",
+        "system": "#508642",
+        "user": "#5195CE"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "decimals": 2,
+      "description": "Basic CPU info",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 4,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 0,
+        "y": 5
+      },
+      "hiddenSeries": false,
+      "id": 76,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": 250,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "maxPerRow": 6,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": true,
+      "pluginVersion": "10.2.0",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:3565",
+          "alias": "Busy Iowait",
+          "color": "#890F02"
+        },
+        {
+          "$$hashKey": "object:3566",
+          "alias": "Idle",
+          "color": "#7EB26D"
+        },
+        {
+          "$$hashKey": "object:3567",
+          "alias": "Busy System",
+          "color": "#EAB839"
+        },
+        {
+          "$$hashKey": "object:3568",
+          "alias": "Busy User",
+          "color": "#0A437C"
+        },
+        {
+          "$$hashKey": "object:3569",
+          "alias": "Busy Other",
+          "color": "#B877D9"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=\"system\",instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Busy System",
+          "range": true,
+          "refId": "A",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='user',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Busy User",
+          "range": true,
+          "refId": "B",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='iowait',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "Busy Iowait",
+          "range": true,
+          "refId": "C",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=~\".*irq\",instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "Busy IRQs",
+          "refId": "D",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "sum (irate(node_cpu_seconds_total{mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "Busy Other",
+          "range": true,
+          "refId": "E",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Idle",
+          "refId": "F",
+          "step": 240
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "CPU Basic",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3600",
+          "format": "short",
+          "label": "",
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3601",
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {
+        "Apps": "#629E51",
+        "Buffers": "#614D93",
+        "Cache": "#6D1F62",
+        "Cached": "#511749",
+        "Committed": "#508642",
+        "Free": "#0A437C",
+        "Hardware Corrupted - Amount of RAM that the kernel identified as corrupted / not working": "#CFFAFF",
+        "Inactive": "#584477",
+        "PageTables": "#0A50A1",
+        "Page_Tables": "#0A50A1",
+        "RAM_Free": "#E0F9D7",
+        "SWAP Used": "#BF1B00",
+        "Slab": "#806EB7",
+        "Slab_Cache": "#E0752D",
+        "Swap": "#BF1B00",
+        "Swap Used": "#BF1B00",
+        "Swap_Cache": "#C15C17",
+        "Swap_Free": "#2F575E",
+        "Unused": "#EAB839"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "decimals": 2,
+      "description": "Basic memory usage",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 4,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 6,
+        "y": 5
+      },
+      "hiddenSeries": false,
+      "id": 78,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "sideWidth": 350,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "maxPerRow": 6,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "10.2.0",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:4023",
+          "alias": "RAM Total",
+          "color": "#E0F9D7",
+          "fill": 0,
+          "stack": false
+        },
+        {
+          "$$hashKey": "object:4024",
+          "alias": "RAM Cache + Buffer",
+          "color": "#052B51"
+        },
+        {
+          "$$hashKey": "object:4025",
+          "alias": "RAM Free",
+          "color": "#7EB26D"
+        },
+        {
+          "$$hashKey": "object:4026",
+          "alias": "Avaliable",
+          "color": "#DEDAF7",
+          "fill": 0,
+          "stack": false
+        },
+        {
+          "$$hashKey": "object:4083",
+          "alias": "Polkadot",
+          "color": "rgb(247, 0, 222)",
+          "stack": false
+        },
+        {
+          "$$hashKey": "object:5303",
+          "alias": "RAM Used",
+          "color": "#FADE2A"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": true,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "expr": "namedprocess_namegroup_memory_bytes{groupname=\"[[metric_namespace]]\",memtype=\"resident\"}",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "Polkadot",
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 2,
+          "legendFormat": "RAM Total",
+          "range": true,
+          "refId": "A",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - (node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "RAM Used",
+          "range": true,
+          "refId": "B",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "RAM Cache + Buffer",
+          "range": true,
+          "refId": "C",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "node_memory_MemFree_bytes{instance=\"$instance\",job=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "RAM Free",
+          "range": true,
+          "refId": "D",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "(node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - node_memory_SwapFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "SWAP Used",
+          "range": true,
+          "refId": "E",
+          "step": 240
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Memory Basic",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:4059",
+          "format": "bytes",
+          "label": "",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:4060",
+          "format": "short",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {
+        "Recv_bytes_eth2": "#7EB26D",
+        "Recv_bytes_lo": "#0A50A1",
+        "Recv_drop_eth2": "#6ED0E0",
+        "Recv_drop_lo": "#E0F9D7",
+        "Recv_errs_eth2": "#BF1B00",
+        "Recv_errs_lo": "#CCA300",
+        "Trans_bytes_eth2": "#7EB26D",
+        "Trans_bytes_lo": "#0A50A1",
+        "Trans_drop_eth2": "#6ED0E0",
+        "Trans_drop_lo": "#E0F9D7",
+        "Trans_errs_eth2": "#BF1B00",
+        "Trans_errs_lo": "#CCA300",
+        "recv_bytes_lo": "#0A50A1",
+        "recv_drop_eth0": "#99440A",
+        "recv_drop_lo": "#967302",
+        "recv_errs_eth0": "#BF1B00",
+        "recv_errs_lo": "#890F02",
+        "trans_bytes_eth0": "#7EB26D",
+        "trans_bytes_lo": "#0A50A1",
+        "trans_drop_eth0": "#99440A",
+        "trans_drop_lo": "#967302",
+        "trans_errs_eth0": "#BF1B00",
+        "trans_errs_lo": "#890F02"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "description": "Basic network info per interface",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 4,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 12,
+        "y": 5
+      },
+      "hiddenSeries": false,
+      "id": 80,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "hideEmpty": false,
+        "hideZero": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "sort": "current",
+        "sortDesc": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "10.2.0",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [
+        {
+          "$$hashKey": "object:1019",
+          "alias": "/.*trans.*/",
+          "transform": "negative-Y"
+        }
+      ],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "irate(node_network_receive_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])*8",
+          "format": "time_series",
+          "interval": "",
+          "intervalFactor": 2,
+          "legendFormat": "recv {{device}}",
+          "range": true,
+          "refId": "A",
+          "step": 240
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "irate(node_network_transmit_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])*8",
+          "format": "time_series",
+          "intervalFactor": 2,
+          "legendFormat": "trans {{device}} ",
+          "range": true,
+          "refId": "B",
+          "step": 240
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "Network Traffic Basic",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:1065",
+          "format": "bps",
+          "logBase": 1,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:1066",
+          "format": "pps",
+          "label": "",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    },
+    {
+      "aliasColors": {
+        "io time": "#890F02"
+      },
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${PROMETHEUS_DATASOURCE_UID}"
+      },
+      "decimals": 3,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 4,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 6,
+        "x": 18,
+        "y": 5
+      },
+      "hiddenSeries": false,
+      "id": 88,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": true,
+        "min": true,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [],
+      "maxPerRow": 6,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "10.2.0",
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${PROMETHEUS_DATASOURCE_UID}"
+          },
+          "editorMode": "code",
+          "expr": "irate(node_disk_io_time_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\",device=~\"$diskdevices\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} [5m])",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 2,
+          "legendFormat": "{{device}} - Time spent doing I/Os",
+          "range": true,
+          "refId": "A",
+          "step": 240
+        }
+      ],
+      "thresholds": [],
+      "timeRegions": [],
+      "title": "I/O Usage Times",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "mode": "time",
+        "show": false,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:3764",
+          "format": "s",
+          "label": "time",
+          "logBase": 1,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:3765",
+          "format": "s",
+          "label": "",
+          "logBase": 1,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false
+      }
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 38,
+  "tags": [
+    "parachain"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "gargantuan",
+          "value": "gargantuan"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${PROMETHEUS_DATASOURCE_UID}"
+        },
+        "definition": "label_values(chain)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Chain",
+        "multi": false,
+        "name": "chain",
+        "options": [],
+        "query": {
+          "query": "label_values(chain)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "hyperbridge-cl-testnet-collator-1-001",
+          "value": "hyperbridge-cl-testnet-collator-1-001"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${PROMETHEUS_DATASOURCE_UID}"
+        },
+        "definition": "label_values({chain=\"$chain\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},instance)",
+        "description": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Instance",
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values({project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},instance)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "hyperbridge_node_exporters",
+          "value": "hyperbridge_node_exporters"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${PROMETHEUS_DATASOURCE_UID}"
+        },
+        "definition": "label_values({instance=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},job)",
+        "description": "Node exporter server job - default value: node_exporter",
+        "hide": 2,
+        "includeAll": false,
+        "label": "Server Job",
+        "multi": false,
+        "name": "job",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values({instance=\"$instance\",project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},job)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "[a-z]+|nvme[0-9]+n[0-9]+",
+          "value": "[a-z]+|nvme[0-9]+n[0-9]+"
+        },
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "diskdevices",
+        "options": [
+          {
+            "selected": true,
+            "text": "[a-z]+|nvme[0-9]+n[0-9]+",
+            "value": "[a-z]+|nvme[0-9]+n[0-9]+"
+          }
+        ],
+        "query": "[a-z]+|nvme[0-9]+n[0-9]+",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Node Health",
+  "uid": "blockops-nodehealth-monitor",
+  "version": 3,
+  "weekStart": ""
+}
