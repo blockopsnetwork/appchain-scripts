@@ -142,7 +142,8 @@
               }
             ]
           },
-          "unit": "percent"
+          "unit": "percent",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -174,7 +175,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "(node_filesystem_size_bytes{instance=\"$instance\",  project_name=\"PROJECTNAME\", project_id=\"PROJECTID\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}) *100/(node_filesystem_avail_bytes {instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
+          "expr": "(node_filesystem_size_bytes{instance=\"$instance\",  project_name=\"aspernode\", project_id=\"16\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"aspernode\", project_id=\"16\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}) *100/(node_filesystem_avail_bytes {instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{instance=\"$instance\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{instance=\"$instance\", project_name=\"aspernode\", project_id=\"16\", fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
           "hide": false,
           "intervalFactor": 1,
           "legendFormat": "",
@@ -227,7 +228,8 @@
               }
             ]
           },
-          "unit": "percent"
+          "unit": "percent",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -252,9 +254,10 @@
         },
         "showThresholdLabels": false,
         "showThresholdMarkers": true,
+        "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "10.2.0",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -262,7 +265,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "avg(node_load5{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) by (cpu)) * 100",
+          "expr": "avg(node_load5{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}) by (cpu)) * 100",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -315,7 +318,8 @@
               }
             ]
           },
-          "unit": "percent"
+          "unit": "percent",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -340,9 +344,10 @@
         },
         "showThresholdLabels": false,
         "showThresholdMarkers": true,
+        "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "10.2.0",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -350,7 +355,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "avg(node_load15{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) by (cpu)) * 100",
+          "expr": "avg(node_load15{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}) by (cpu)) * 100",
           "hide": false,
           "intervalFactor": 1,
           "range": true,
@@ -380,8 +385,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "rgba(50, 172, 45, 0.97)",
-                "value": null
+                "color": "rgba(50, 172, 45, 0.97)"
               },
               {
                 "color": "rgba(237, 129, 40, 0.89)",
@@ -393,7 +397,8 @@
               }
             ]
           },
-          "unit": "percent"
+          "unit": "percent",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -419,9 +424,10 @@
         },
         "showThresholdLabels": false,
         "showThresholdMarkers": true,
+        "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "10.2.0",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -429,7 +435,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "((node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) / (node_memory_MemTotal_bytes{instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} )) * 100",
+          "expr": "((node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}) / (node_memory_MemTotal_bytes{instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"} )) * 100",
           "format": "time_series",
           "hide": true,
           "intervalFactor": 1,
@@ -443,7 +449,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "100 - ((node_memory_MemAvailable_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} * 100) / node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
+          "expr": "100 - ((node_memory_MemAvailable_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"} * 100) / node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"})",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -497,7 +503,8 @@
               }
             ]
           },
-          "unit": "percent"
+          "unit": "percent",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -522,9 +529,10 @@
         },
         "showThresholdLabels": false,
         "showThresholdMarkers": true,
+        "sizing": "auto",
         "text": {}
       },
-      "pluginVersion": "10.2.0",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -532,7 +540,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} * 100) / node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
+          "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"aspernode\", project_id=\"16\"} * 100) / node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"aspernode\", project_id=\"16\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "range": true,
@@ -578,7 +586,8 @@
               }
             ]
           },
-          "unit": "short"
+          "unit": "short",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -603,9 +612,11 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.2.0",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -613,7 +624,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}) by (cpu))",
+          "expr": "count(count(node_cpu_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}) by (cpu))",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -661,7 +672,8 @@
               }
             ]
           },
-          "unit": "s"
+          "unit": "s",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -687,9 +699,11 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.2.0",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -697,7 +711,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "node_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - node_boot_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "expr": "node_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"} - node_boot_time_seconds{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}",
           "intervalFactor": 2,
           "range": true,
           "refId": "A",
@@ -747,7 +761,8 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "bytes",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -772,9 +787,11 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.2.0",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -782,7 +799,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "expr": "node_filesystem_size_bytes{instance=\"$instance\",job=\"${JOB_NAME}\",mountpoint=\"/\",fstype!=\"rootfs\", project_name=\"aspernode\", project_id=\"16\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -830,7 +847,8 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "bytes",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -855,9 +873,11 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.2.0",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -865,7 +885,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}",
           "intervalFactor": 1,
           "range": true,
           "refId": "A",
@@ -911,7 +931,8 @@
               }
             ]
           },
-          "unit": "bytes"
+          "unit": "bytes",
+          "unitScale": true
         },
         "overrides": []
       },
@@ -936,9 +957,11 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.2.0",
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -946,7 +969,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "expr": "node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}",
           "intervalFactor": 1,
           "range": true,
           "refId": "A",
@@ -957,102 +980,378 @@
       "type": "stat"
     },
     {
-      "aliasColors": {
-        "Busy": "#EAB839",
-        "Busy Iowait": "#890F02",
-        "Busy other": "#1F78C1",
-        "Idle": "#052B51",
-        "Idle - Waiting for something to happen": "#052B51",
-        "guest": "#9AC48A",
-        "idle": "#052B51",
-        "iowait": "#EAB839",
-        "irq": "#BF1B00",
-        "nice": "#C15C17",
-        "softirq": "#E24D42",
-        "steal": "#FCE2DE",
-        "system": "#508642",
-        "user": "#5195CE"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "prometheus",
         "uid": "blockopsthanosdashboarduid"
       },
-      "decimals": 2,
       "description": "Basic CPU info",
       "fieldConfig": {
         "defaults": {
-          "links": []
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 40,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short",
+          "unitScale": true
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Busy"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#EAB839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Busy Iowait"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#890F02",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Busy other"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#1F78C1",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Idle"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#052B51",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Idle - Waiting for something to happen"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#052B51",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#9AC48A",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "idle"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#052B51",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "iowait"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#EAB839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "irq"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "nice"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#C15C17",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "softirq"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#E24D42",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "steal"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FCE2DE",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "system"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#508642",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "user"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#5195CE",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Busy Iowait"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#890F02",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Idle"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#7EB26D",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Busy System"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#EAB839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Busy User"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#0A437C",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Busy Other"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#B877D9",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
-      "fill": 4,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 6,
         "x": 0,
         "y": 5
       },
-      "hiddenSeries": false,
       "id": 76,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "sideWidth": 250,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
       "links": [],
-      "maxPerRow": 6,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": true,
-      "pluginVersion": "10.2.0",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$$hashKey": "object:3565",
-          "alias": "Busy Iowait",
-          "color": "#890F02"
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true,
+          "width": 250
         },
-        {
-          "$$hashKey": "object:3566",
-          "alias": "Idle",
-          "color": "#7EB26D"
-        },
-        {
-          "$$hashKey": "object:3567",
-          "alias": "Busy System",
-          "color": "#EAB839"
-        },
-        {
-          "$$hashKey": "object:3568",
-          "alias": "Busy User",
-          "color": "#0A437C"
-        },
-        {
-          "$$hashKey": "object:3569",
-          "alias": "Busy Other",
-          "color": "#B877D9"
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
+      },
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -1061,7 +1360,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=\"system\",instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=\"system\",instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}[5m])) * 100",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1077,7 +1376,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='user',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='user',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}[5m])) * 100",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1093,7 +1392,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='iowait',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode='iowait',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}[5m])) * 100",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Busy Iowait",
@@ -1106,7 +1405,7 @@
             "type": "prometheus",
             "uid": "blockopsthanosdashboarduid"
           },
-          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=~\".*irq\",instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "expr": "sum by (instance)(irate(node_cpu_seconds_total{mode=~\".*irq\",instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}[5m])) * 100",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Busy IRQs",
@@ -1119,7 +1418,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "sum (irate(node_cpu_seconds_total{mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "expr": "sum (irate(node_cpu_seconds_total{mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq',instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}[5m])) * 100",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "Busy Other",
@@ -1132,7 +1431,7 @@
             "type": "prometheus",
             "uid": "blockopsthanosdashboarduid"
           },
-          "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])) * 100",
+          "expr": "sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=\"$node\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}[5m])) * 100",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1141,153 +1440,500 @@
           "step": 240
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "CPU Basic",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3600",
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "max": "100",
-          "min": "0",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3601",
-          "format": "short",
-          "logBase": 1,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {
-        "Apps": "#629E51",
-        "Buffers": "#614D93",
-        "Cache": "#6D1F62",
-        "Cached": "#511749",
-        "Committed": "#508642",
-        "Free": "#0A437C",
-        "Hardware Corrupted - Amount of RAM that the kernel identified as corrupted / not working": "#CFFAFF",
-        "Inactive": "#584477",
-        "PageTables": "#0A50A1",
-        "Page_Tables": "#0A50A1",
-        "RAM_Free": "#E0F9D7",
-        "SWAP Used": "#BF1B00",
-        "Slab": "#806EB7",
-        "Slab_Cache": "#E0752D",
-        "Swap": "#BF1B00",
-        "Swap Used": "#BF1B00",
-        "Swap_Cache": "#C15C17",
-        "Swap_Free": "#2F575E",
-        "Unused": "#EAB839"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "prometheus",
         "uid": "blockopsthanosdashboarduid"
       },
-      "decimals": 2,
       "description": "Basic memory usage",
       "fieldConfig": {
         "defaults": {
-          "links": []
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 40,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bytes",
+          "unitScale": true
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Apps"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#629E51",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Buffers"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#614D93",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cache"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#6D1F62",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Cached"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#511749",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Committed"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#508642",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Free"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#0A437C",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Hardware Corrupted - Amount of RAM that the kernel identified as corrupted / not working"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#CFFAFF",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Inactive"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#584477",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PageTables"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#0A50A1",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Page_Tables"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#0A50A1",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RAM_Free"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#E0F9D7",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "SWAP Used"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Slab"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#806EB7",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Slab_Cache"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#E0752D",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Swap"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Swap Used"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Swap_Cache"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#C15C17",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Swap_Free"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#2F575E",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Unused"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#EAB839",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RAM Total"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#E0F9D7",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.stacking",
+                "value": {
+                  "group": "A",
+                  "mode": "none"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RAM Cache + Buffer"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#052B51",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RAM Free"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#7EB26D",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Avaliable"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#DEDAF7",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.stacking",
+                "value": {
+                  "group": "A",
+                  "mode": "none"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Polkadot"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "rgb(247, 0, 222)",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.stacking",
+                "value": {
+                  "group": "A",
+                  "mode": "none"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "RAM Used"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#FADE2A",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
-      "fill": 4,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 6,
         "x": 6,
         "y": 5
       },
-      "hiddenSeries": false,
       "id": 78,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "sideWidth": 350,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
       "links": [],
-      "maxPerRow": 6,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "10.2.0",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$$hashKey": "object:4023",
-          "alias": "RAM Total",
-          "color": "#E0F9D7",
-          "fill": 0,
-          "stack": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true,
+          "width": 350
         },
-        {
-          "$$hashKey": "object:4024",
-          "alias": "RAM Cache + Buffer",
-          "color": "#052B51"
-        },
-        {
-          "$$hashKey": "object:4025",
-          "alias": "RAM Free",
-          "color": "#7EB26D"
-        },
-        {
-          "$$hashKey": "object:4026",
-          "alias": "Avaliable",
-          "color": "#DEDAF7",
-          "fill": 0,
-          "stack": false
-        },
-        {
-          "$$hashKey": "object:4083",
-          "alias": "Polkadot",
-          "color": "rgb(247, 0, 222)",
-          "stack": false
-        },
-        {
-          "$$hashKey": "object:5303",
-          "alias": "RAM Used",
-          "color": "#FADE2A"
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
+      },
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -1307,7 +1953,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -1322,7 +1968,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - (node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
+          "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"} - (node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"})",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1338,7 +1984,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "expr": "node_memory_Cached_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"} + node_memory_Buffers_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "RAM Cache + Buffer",
@@ -1352,7 +1998,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "node_memory_MemFree_bytes{instance=\"$instance\",job=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}",
+          "expr": "node_memory_MemFree_bytes{instance=\"$instance\",job=\"$instance\", project_name=\"aspernode\", project_id=\"16\"}",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "RAM Free",
@@ -1366,7 +2012,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "(node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} - node_memory_SwapFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"})",
+          "expr": "(node_memory_SwapTotal_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"} - node_memory_SwapFree_bytes{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1376,69 +2022,10 @@
           "step": 240
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Memory Basic",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:4059",
-          "format": "bytes",
-          "label": "",
-          "logBase": 1,
-          "min": "0",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:4060",
-          "format": "short",
-          "logBase": 1,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {
-        "Recv_bytes_eth2": "#7EB26D",
-        "Recv_bytes_lo": "#0A50A1",
-        "Recv_drop_eth2": "#6ED0E0",
-        "Recv_drop_lo": "#E0F9D7",
-        "Recv_errs_eth2": "#BF1B00",
-        "Recv_errs_lo": "#CCA300",
-        "Trans_bytes_eth2": "#7EB26D",
-        "Trans_bytes_lo": "#0A50A1",
-        "Trans_drop_eth2": "#6ED0E0",
-        "Trans_drop_lo": "#E0F9D7",
-        "Trans_errs_eth2": "#BF1B00",
-        "Trans_errs_lo": "#CCA300",
-        "recv_bytes_lo": "#0A50A1",
-        "recv_drop_eth0": "#99440A",
-        "recv_drop_lo": "#967302",
-        "recv_errs_eth0": "#BF1B00",
-        "recv_errs_lo": "#890F02",
-        "trans_bytes_eth0": "#7EB26D",
-        "trans_bytes_lo": "#0A50A1",
-        "trans_drop_eth0": "#99440A",
-        "trans_drop_lo": "#967302",
-        "trans_errs_eth0": "#BF1B00",
-        "trans_errs_lo": "#890F02"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "prometheus",
         "uid": "blockopsthanosdashboarduid"
@@ -1446,57 +2033,440 @@
       "description": "Basic network info per interface",
       "fieldConfig": {
         "defaults": {
-          "links": []
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 40,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "bps",
+          "unitScale": true
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Recv_bytes_eth2"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#7EB26D",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Recv_bytes_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#0A50A1",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Recv_drop_eth2"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#6ED0E0",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Recv_drop_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#E0F9D7",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Recv_errs_eth2"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Recv_errs_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#CCA300",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Trans_bytes_eth2"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#7EB26D",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Trans_bytes_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#0A50A1",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Trans_drop_eth2"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#6ED0E0",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Trans_drop_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#E0F9D7",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Trans_errs_eth2"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Trans_errs_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#CCA300",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "recv_bytes_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#0A50A1",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "recv_drop_eth0"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#99440A",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "recv_drop_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#967302",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "recv_errs_eth0"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "recv_errs_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#890F02",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "trans_bytes_eth0"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#7EB26D",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "trans_bytes_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#0A50A1",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "trans_drop_eth0"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#99440A",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "trans_drop_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#967302",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "trans_errs_eth0"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#BF1B00",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "trans_errs_lo"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#890F02",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byRegexp",
+              "options": "/.*trans.*/"
+            },
+            "properties": [
+              {
+                "id": "custom.transform",
+                "value": "negative-Y"
+              }
+            ]
+          }
+        ]
       },
-      "fill": 4,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 6,
         "x": 12,
         "y": 5
       },
-      "hiddenSeries": false,
       "id": 80,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "hideEmpty": false,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "sort": "current",
-        "sortDesc": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
       "links": [],
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "10.2.0",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "$$hashKey": "object:1019",
-          "alias": "/.*trans.*/",
-          "transform": "negative-Y"
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
         }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      },
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -1504,7 +2474,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_receive_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])*8",
+          "expr": "irate(node_network_receive_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}[5m])*8",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 2,
@@ -1519,7 +2489,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "irate(node_network_transmit_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"}[5m])*8",
+          "expr": "irate(node_network_transmit_bytes_total{instance=\"$instance\",job=\"${JOB_NAME}\", project_name=\"aspernode\", project_id=\"16\"}[5m])*8",
           "format": "time_series",
           "intervalFactor": 2,
           "legendFormat": "trans {{device}} ",
@@ -1528,96 +2498,127 @@
           "step": 240
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "Network Traffic Basic",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:1065",
-          "format": "bps",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:1066",
-          "format": "pps",
-          "label": "",
-          "logBase": 1,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {
-        "io time": "#890F02"
-      },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
       "datasource": {
         "type": "prometheus",
         "uid": "blockopsthanosdashboarduid"
       },
-      "decimals": 3,
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "links": []
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "time",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 40,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s",
+          "unitScale": true
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "io time"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#890F02",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "time"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "hidden"
+              }
+            ]
+          }
+        ]
       },
-      "fill": 4,
-      "fillGradient": 0,
       "gridPos": {
         "h": 7,
         "w": 6,
         "x": 18,
         "y": 5
       },
-      "hiddenSeries": false,
       "id": 88,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
       "links": [],
-      "maxPerRow": 6,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "10.2.0",
-      "pointradius": 5,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -1625,7 +2626,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "irate(node_disk_io_time_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\",device=~\"$diskdevices\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"} [5m])",
+          "expr": "irate(node_disk_io_time_seconds_total{instance=\"$instance\",job=\"${JOB_NAME}\",device=~\"$diskdevices\", project_name=\"aspernode\", project_id=\"16\"} [5m])",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 2,
@@ -1635,44 +2636,12 @@
           "step": 240
         }
       ],
-      "thresholds": [],
-      "timeRegions": [],
       "title": "I/O Usage Times",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": false,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3764",
-          "format": "s",
-          "label": "time",
-          "logBase": 1,
-          "min": "0",
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3765",
-          "format": "s",
-          "label": "",
-          "logBase": 1,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
+      "type": "timeseries"
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 38,
+  "schemaVersion": 39,
   "tags": [
     "parachain"
   ],
@@ -1680,9 +2649,10 @@
     "list": [
       {
         "current": {
+          "isNone": true,
           "selected": true,
-          "text": "gargantuan",
-          "value": "gargantuan"
+          "text": "None",
+          "value": ""
         },
         "datasource": {
           "type": "prometheus",
@@ -1707,15 +2677,16 @@
       },
       {
         "current": {
+          "isNone": true,
           "selected": true,
-          "text": "hyperbridge-cl-testnet-collator-1-001",
-          "value": "hyperbridge-cl-testnet-collator-1-001"
+          "text": "None",
+          "value": ""
         },
         "datasource": {
           "type": "prometheus",
           "uid": "blockopsthanosdashboarduid"
         },
-        "definition": "label_values({chain=\"$chain\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},instance)",
+        "definition": "label_values({chain=\"$chain\", project_name=\"aspernode\", project_id=\"16\"},instance)",
         "description": "",
         "hide": 0,
         "includeAll": false,
@@ -1725,7 +2696,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values({project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},instance)",
+          "query": "label_values({project_name=\"aspernode\", project_id=\"16\"},instance)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -1739,15 +2710,16 @@
       },
       {
         "current": {
+          "isNone": true,
           "selected": false,
-          "text": "hyperbridge_node_exporters",
-          "value": "hyperbridge_node_exporters"
+          "text": "None",
+          "value": ""
         },
         "datasource": {
           "type": "prometheus",
           "uid": "blockopsthanosdashboarduid"
         },
-        "definition": "label_values({instance=\"$instance\", project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},job)",
+        "definition": "label_values({instance=\"$instance\", project_name=\"aspernode\", project_id=\"16\"},job)",
         "description": "Node exporter server job - default value: node_exporter",
         "hide": 2,
         "includeAll": false,
@@ -1757,7 +2729,7 @@
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values({instance=\"$instance\",project_name=\"PROJECTNAME\", project_id=\"PROJECTID\"},job)",
+          "query": "label_values({instance=\"$instance\",project_name=\"aspernode\", project_id=\"16\"},job)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
