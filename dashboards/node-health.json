@@ -364,7 +364,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "e9cd7b44-5a13-45a0-8325-c110f4cb5c5f"
+        "uid": "blockopsthanosdashboarduid"
       },
       "description": "Non available RAM memory",
       "fieldConfig": {
