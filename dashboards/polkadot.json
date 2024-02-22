@@ -139,7 +139,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "substrate_block_height{chain=\"$chain\", instance=\"$instance\",projectidentity=\"project_identity\"}",
+          "expr": "substrate_block_height{chain=\"$chain\", environment=\"environment_id\",projectidentity=\"project_identity\"}",
           "interval": "",
           "legendFormat": "{{status}}",
           "range": true,
@@ -204,7 +204,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "time() - substrate_process_start_time_seconds{chain=\"$chain\",instance=\"$instance\", projectidentity=\"project_identity\"}",
+          "expr": "time() - substrate_process_start_time_seconds{chain=\"$chain\",environment=\"environment_id\", projectidentity=\"project_identity\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "{{job}}",
@@ -304,7 +304,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "substrate_sub_libp2p_incoming_connections_total{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}",
+          "expr": "substrate_sub_libp2p_incoming_connections_total{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}",
           "format": "time_series",
           "instant": true,
           "legendFormat": "{{job}}",
@@ -402,7 +402,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "scalar(substrate_block_height{status=\"best\", chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"})-scalar(substrate_block_height{status=\"finalized\", chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"})",
+          "expr": "scalar(substrate_block_height{status=\"best\", chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"})-scalar(substrate_block_height{status=\"finalized\", chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"})",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -506,7 +506,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}",
+          "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}",
           "instant": false,
           "interval": "",
           "legendFormat": "Peers count",
@@ -625,7 +625,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "increase(substrate_rpc_requests_finished{chain=\"$chain\", protocol=\"http\",instance=\"$instance\",projectidentity=\"project_identity\"}[5m])",
+          "expr": "increase(substrate_rpc_requests_finished{chain=\"$chain\", protocol=\"http\",environment=\"environment_id\",projectidentity=\"project_identity\"}[5m])",
           "instant": true,
           "interval": "",
           "legendFormat": "{{protocol}}",
@@ -726,7 +726,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "rate(substrate_tasks_polling_duration_bucket{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}[5m])",
+          "expr": "rate(substrate_tasks_polling_duration_bucket{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}[5m])",
           "interval": "",
           "legendFormat": "{{task_name}}",
           "range": true,
@@ -798,7 +798,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}",
+          "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "{{chain}}",
@@ -898,7 +898,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "rate(substrate_tasks_polling_started_total{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}[5m]) - rate(substrate_tasks_polling_duration_count{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}[5m])",
+          "expr": "rate(substrate_tasks_polling_started_total{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}[5m]) - rate(substrate_tasks_polling_duration_count{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}[5m])",
           "interval": "",
           "legendFormat": "{{task_name}}",
           "range": true,
@@ -997,7 +997,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "substrate_sync_peers{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}",
+          "expr": "substrate_sync_peers{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}",
           "interval": "",
           "legendFormat": "",
           "range": true,
@@ -1043,15 +1043,15 @@
           "type": "prometheus",
           "uid": "blockopsthanosdashboarduid"
         },
-        "definition": "label_values(instance)",
+        "definition": "label_values(environment)",
         "hide": 0,
         "includeAll": false,
         "multi": false,
-        "name": "instance",
+        "name": "environment",
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(instance)",
+          "query": "label_values(environment)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -1103,8 +1103,8 @@
     ]
   },
   "timezone": "",
-  "title": "Blockops RPC Node",
-  "uid": "d0ce287a-ffd7-4cc8-95de-a71a37ae5c5d",
-  "version": 11,
+  "title": "Blockops Polkadot",
+  "uid": "f49b5b08-0812-41e5-bb47-97a102b29c3d",
+  "version": 13,
   "weekStart": ""
 }
