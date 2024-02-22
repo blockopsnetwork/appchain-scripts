@@ -1,4 +1,41 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.3.3"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -29,7 +66,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 13697,
   "graphTooltip": 0,
-  "id": 3,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -72,7 +109,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 16,
+        "w": 15,
         "x": 0,
         "y": 0
       },
@@ -102,7 +139,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "substrate_block_height{chain=\"$chain\",job=\"gce_instances_parachain\",instance=\"asper-fullnode-0-6263057\"}",
+          "expr": "substrate_block_height{chain=\"$chain\", instance=\"$instance\",projectidentity=\"project_identity\"}",
           "interval": "",
           "legendFormat": "{{status}}",
           "range": true,
@@ -120,41 +157,6 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -162,36 +164,38 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
+          "unit": "s",
           "unitScale": true
         },
         "overrides": []
       },
       "gridPos": {
         "h": 6,
-        "w": 8,
-        "x": 16,
+        "w": 9,
+        "x": 15,
         "y": 0
       },
-      "id": 34,
+      "id": 42,
       "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
+      "pluginVersion": "10.3.3",
       "targets": [
         {
           "datasource": {
@@ -199,14 +203,17 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "scalar(substrate_block_height{status=\"best\", chain=\"$chain\",instance=\"$instance\"})-scalar(substrate_block_height{status=\"finalized\", chain=\"$chain\", instance=\"$instance\"})",
-          "legendFormat": "__auto",
-          "range": true,
+          "exemplar": false,
+          "expr": "time() - substrate_process_start_time_seconds{chain=\"$chain\",instance=\"$instance\", projectidentity=\"project_identity\"}",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{job}}",
+          "range": false,
           "refId": "A"
         }
       ],
-      "title": "Diff -> ( Best Block - Finalized )",
-      "type": "timeseries"
+      "title": "Node uptime",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -266,8 +273,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 13,
+        "h": 6,
+        "w": 12,
         "x": 0,
         "y": 6
       },
@@ -297,7 +304,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "substrate_sub_libp2p_incoming_connections_total{chain=\"$chain\", instance=\"$instance\"}",
+          "expr": "substrate_sub_libp2p_incoming_connections_total{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}",
           "format": "time_series",
           "instant": true,
           "legendFormat": "{{job}}",
@@ -365,6 +372,103 @@
               }
             ]
           },
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 6
+      },
+      "id": 34,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "blockopsthanosdashboarduid"
+          },
+          "editorMode": "code",
+          "expr": "scalar(substrate_block_height{status=\"best\", chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"})-scalar(substrate_block_height{status=\"finalized\", chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"})",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Diff -> ( Best Block - Finalized )",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "blockopsthanosdashboarduid"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "none",
           "unitScale": true
         },
@@ -373,8 +477,132 @@
       "gridPos": {
         "h": 8,
         "w": 11,
-        "x": 13,
-        "y": 6
+        "x": 0,
+        "y": 12
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "blockopsthanosdashboarduid"
+          },
+          "editorMode": "code",
+          "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "Peers count",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "blockopsthanosdashboarduid"
+          },
+          "expr": "polkadot_sub_libp2p_peerset_num_discovered",
+          "interval": "",
+          "legendFormat": "Discovered peers",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "blockopsthanosdashboarduid"
+          },
+          "expr": "polkadot_sub_libp2p_peerset_num_requested",
+          "interval": "",
+          "legendFormat": "Requested peers",
+          "refId": "B"
+        }
+      ],
+      "title": "Peers connected, discovered, and requested",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "blockopsthanosdashboarduid"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 13,
+        "x": 11,
+        "y": 12
       },
       "id": 39,
       "options": {
@@ -397,7 +625,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "increase(substrate_rpc_requests_finished{chain=\"$chain\", protocol=\"http\", instance=\"$instance\"}[5m])",
+          "expr": "increase(substrate_rpc_requests_finished{chain=\"$chain\", protocol=\"http\",instance=\"$instance\",projectidentity=\"project_identity\"}[5m])",
           "instant": true,
           "interval": "",
           "legendFormat": "{{protocol}}",
@@ -416,6 +644,42 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -423,10 +687,14 @@
               {
                 "color": "green",
                 "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
               }
             ]
           },
-          "unit": "s",
+          "unit": "short",
           "unitScale": true
         },
         "overrides": []
@@ -435,26 +703,22 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 14
+        "y": 20
       },
-      "id": 42,
+      "id": 30,
       "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
         },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "pluginVersion": "10.3.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -462,17 +726,15 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "time() - substrate_process_start_time_seconds{chain=\"$chain\",instance=\"$instance\"}",
-          "instant": true,
+          "expr": "rate(substrate_tasks_polling_duration_bucket{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}[5m])",
           "interval": "",
-          "legendFormat": "{{job}}",
-          "range": false,
+          "legendFormat": "{{task_name}}",
+          "range": true,
           "refId": "A"
         }
       ],
-      "title": "Node uptime",
-      "type": "stat"
+      "title": "Tasks rate",
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -508,7 +770,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 14
+        "y": 20
       },
       "id": 38,
       "options": {
@@ -536,7 +798,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\", instance=\"$instance\"}",
+          "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "{{chain}}",
@@ -552,231 +814,6 @@
         "type": "prometheus",
         "uid": "blockopsthanosdashboarduid"
       },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "links": [],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none",
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 22
-      },
-      "id": 10,
-      "options": {
-        "legend": {
-          "calcs": [
-            "mean",
-            "lastNotNull",
-            "max",
-            "min"
-          ],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "9.4.7",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "blockopsthanosdashboarduid"
-          },
-          "editorMode": "code",
-          "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\",instance=\"$instance\"}",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "Peers count",
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "blockopsthanosdashboarduid"
-          },
-          "expr": "polkadot_sub_libp2p_peerset_num_discovered",
-          "interval": "",
-          "legendFormat": "Discovered peers",
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "blockopsthanosdashboarduid"
-          },
-          "expr": "polkadot_sub_libp2p_peerset_num_requested",
-          "interval": "",
-          "legendFormat": "Requested peers",
-          "refId": "B"
-        }
-      ],
-      "title": "Peers connected, discovered, and requested",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "blockopsthanosdashboarduid"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "links": [],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short",
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 22
-      },
-      "id": 32,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "9.4.7",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "blockopsthanosdashboarduid"
-          },
-          "editorMode": "code",
-          "expr": "substrate_sync_peers{chain=\"$chain\",instance=\"$instance\"}",
-          "interval": "",
-          "legendFormat": "",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Connected peers",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "blockopsthanosdashboarduid"
-      },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -838,106 +875,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 30
-      },
-      "id": 30,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "9.4.7",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "blockopsthanosdashboarduid"
-          },
-          "editorMode": "code",
-          "expr": "rate(substrate_tasks_polling_duration_bucket{chain=\"$chain\",instance=\"$instance\"}[5m])",
-          "interval": "",
-          "legendFormat": "{{task_name}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Tasks rate",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "blockopsthanosdashboarduid"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "links": [],
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short",
-          "unitScale": true
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 12,
-        "y": 30
+        "y": 28
       },
       "id": 14,
       "options": {
@@ -960,7 +898,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "rate(substrate_tasks_polling_started_total{chain=\"$chain\", instance=\"$instance\"}[5m]) - rate(substrate_tasks_polling_duration_count{chain=\"$chain\", instance=\"$instance\"}[5m])",
+          "expr": "rate(substrate_tasks_polling_started_total{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}[5m]) - rate(substrate_tasks_polling_duration_count{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}[5m])",
           "interval": "",
           "legendFormat": "{{task_name}}",
           "range": true,
@@ -968,6 +906,105 @@
         }
       ],
       "title": "Running Tasks",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "blockopsthanosdashboarduid"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "links": [],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short",
+          "unitScale": true
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 28
+      },
+      "id": 32,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "blockopsthanosdashboarduid"
+          },
+          "editorMode": "code",
+          "expr": "substrate_sync_peers{chain=\"$chain\",instance=\"$instance\",projectidentity=\"project_identity\"}",
+          "interval": "",
+          "legendFormat": "",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Connected peers",
       "type": "timeseries"
     }
   ],
@@ -978,11 +1015,7 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": false,
-          "text": "polkadot",
-          "value": "polkadot"
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
           "uid": "blockopsthanosdashboarduid"
@@ -995,8 +1028,30 @@
         "name": "chain",
         "options": [],
         "query": {
-          "qryType": 1,
           "query": "label_values(chain)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "blockopsthanosdashboarduid"
+        },
+        "definition": "label_values(instance)",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(instance)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -1006,25 +1061,20 @@
         "type": "query"
       },
       {
-        "current": {
-          "selected": true,
-          "text": "asper-fullnode-0-6263057",
-          "value": "asper-fullnode-0-6263057"
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
           "uid": "blockopsthanosdashboarduid"
         },
-        "definition": "label_values(instance)",
+        "definition": "label_values(projectidentity)",
         "hide": 0,
         "includeAll": false,
-        "label": "instance",
         "multi": false,
-        "name": "instance",
+        "name": "projectidentity",
         "options": [],
         "query": {
           "qryType": 1,
-          "query": "label_values(instance)",
+          "query": "label_values(projectidentity)",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
@@ -1053,8 +1103,8 @@
     ]
   },
   "timezone": "",
-  "title": "Blockops RPC Node Copy Copy",
-  "uid": "dc22fc51-4bc9-421d-8de8-4b410f992203",
-  "version": 10,
+  "title": "Blockops RPC Node",
+  "uid": "d0ce287a-ffd7-4cc8-95de-a71a37ae5c5d",
+  "version": 11,
   "weekStart": ""
 }
