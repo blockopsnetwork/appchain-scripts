@@ -61,7 +61,7 @@
       }
     ]
   },
-  "description": "A dashboard for monitoring Substrate based chains",
+  "description": "A dashboard for monitoring Polkadot based chains",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "gnetId": 13697,
@@ -139,7 +139,7 @@
             "uid": "blockopsthanosdashboarduid"
           },
           "editorMode": "code",
-          "expr": "substrate_block_height{chain=\"$chain\", environment=\"environment_id\",projectidentity=\"project_identity\", instance=\"$instance\"}",
+          "expr": "substrate_block_height{chain=\"$chain\", environment=\"environment_id\",projectidentity=\"project_identity\", node_identity=\"$node_identity\"}",
           "interval": "",
           "legendFormat": "{{status}} ",
           "range": true,
@@ -207,7 +207,7 @@
           "expr": "time() - substrate_process_start_time_seconds{chain=\"$chain\",environment=\"environment_id\", projectidentity=\"project_identity\"}",
           "instant": true,
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node_identity}}",
           "range": false,
           "refId": "A"
         }
@@ -307,7 +307,7 @@
           "expr": "substrate_sub_libp2p_incoming_connections_total{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}",
           "format": "time_series",
           "instant": true,
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node_identity}}",
           "range": false,
           "refId": "A"
         }
@@ -403,7 +403,7 @@
           },
           "editorMode": "code",
           "expr": "scalar(substrate_block_height{status=\"best\", chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"})-scalar(substrate_block_height{status=\"finalized\", chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"})",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node_identity}}",
           "range": true,
           "refId": "A"
         }
@@ -510,7 +510,7 @@
           "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}",
           "instant": false,
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node_identity}}",
           "range": true,
           "refId": "A"
         },
@@ -630,7 +630,7 @@
           "expr": "increase(substrate_rpc_requests_finished{chain=\"$chain\", protocol=\"http\",environment=\"environment_id\",projectidentity=\"project_identity\"}[5m])",
           "instant": true,
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node_identity}}",
           "range": false,
           "refId": "A"
         }
@@ -730,7 +730,7 @@
           "editorMode": "code",
           "expr": "rate(substrate_tasks_polling_duration_bucket{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}[5m])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node_identity}}",
           "range": true,
           "refId": "A"
         }
@@ -803,7 +803,7 @@
           "expr": "substrate_sub_libp2p_peers_count{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}",
           "instant": true,
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node_identity}}",
           "range": false,
           "refId": "A"
         }
@@ -902,7 +902,7 @@
           "editorMode": "code",
           "expr": "rate(substrate_tasks_polling_started_total{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}[5m]) - rate(substrate_tasks_polling_duration_count{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}[5m])",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node_identity}}",
           "range": true,
           "refId": "A"
         }
@@ -1001,7 +1001,7 @@
           "editorMode": "code",
           "expr": "substrate_sync_peers{chain=\"$chain\",environment=\"environment_id\",projectidentity=\"project_identity\"}",
           "interval": "",
-          "legendFormat": "{{instance}}",
+          "legendFormat": "{{node_identity}}",
           "range": true,
           "refId": "A"
         }
@@ -1047,7 +1047,7 @@
           "uid": "blockopsthanosdashboarduid"
         },
         "definition": "label_values(environment)",
-        "hide": 0,
+        "hide": 2,
         "includeAll": false,
         "multi": false,
         "name": "environment",
@@ -1070,7 +1070,7 @@
           "uid": "blockopsthanosdashboarduid"
         },
         "definition": "label_values(projectidentity)",
-        "hide": 0,
+        "hide": 2,
         "includeAll": false,
         "multi": false,
         "name": "projectidentity",
@@ -1087,27 +1087,24 @@
         "type": "query"
       },
       {
-        "current": {},
-        "datasource": {
-          "type": "prometheus",
-          "uid": "blockopsthanosdashboarduid"
+        "current": {
+          "selected": false,
+          "text": "",
+          "value": ""
         },
-        "definition": "label_values(instance)",
         "hide": 0,
-        "includeAll": false,
-        "multi": false,
-        "name": "instance",
-        "options": [],
-        "query": {
-          "qryType": 1,
-          "query": "label_values(instance)",
-          "refId": "PrometheusVariableQueryEditor-VariableQuery"
-        },
-        "refresh": 1,
-        "regex": "",
+        "label": "",
+        "name": "node_identity",
+        "options": [
+          {
+            "selected": false,
+            "text": "project_identity-boot-0",
+            "value": "project_identity-boot-0"
+          }
+        ],
+        "query": "",
         "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
+        "type": "textbox"
       }
     ]
   },
@@ -1129,8 +1126,8 @@
     ]
   },
   "timezone": "",
-  "title": "Blockops Polkadot new",
-  "uid": "d8d1a525-fd06-4d45-8fbb-bd0b028056b1",
-  "version": 11,
+  "title": "Blockops Polkadot ",
+  "uid": "add02fda-07bd-42c2-9dc7-cd1f53db8230",
+  "version": 5,
   "weekStart": ""
 }
